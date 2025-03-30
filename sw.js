@@ -3,7 +3,15 @@ const cacheName = 'pwa-test';
 const filesToCache = [
   '/',
   '/index.html',
-  'img/icon.png',
+  '/img/icon.png',
+  '/img/home-img.webp',
+  '/img/portfolio2.webp',
+  '/img/photo-profile.webp',
+  '/img/icon.ico',
+  '/img/img-contact.svg',
+  '/css/styles.css',
+  '/manifest.json',
+  '/sw.js'
 ];
 
 //install the sw
