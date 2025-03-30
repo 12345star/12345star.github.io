@@ -149,7 +149,7 @@ span{
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    background-image: url(../images/home-img.png);
+    background-image: url(./home-img.webp);
     background-repeat: no-repeat;
     background-size: cover;
 }
