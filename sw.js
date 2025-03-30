@@ -3,7 +3,7 @@ const cacheName = 'pwa-test';
 const filesToCache = [
   '/',
   '/index.html',
-  '/img/icon.png',
+  'img/icon.png',
 ];
 
 //install the sw
