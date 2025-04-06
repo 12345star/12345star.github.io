@@ -25,7 +25,7 @@ body{
     font-size: 1.6rem;
     font-family: "AR One Sans", sans-serif;
 }
-
+ 
 @media (max-width: 768px){
     body{
         font-size: 1.4rem;
