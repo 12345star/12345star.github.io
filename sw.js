@@ -1,5 +1,5 @@
-const dataCacheName = 'pwa-test-data';
-const cacheName = 'pwa-test';
+const dataCacheName = 'KRIPTON-data';
+const cacheName = 'KRIPTON';
 const filesToCache = [
   '/',
   '/index.html',
@@ -9,9 +9,7 @@ const filesToCache = [
   '/img/photo-profile.webp',
   '/img/icon.ico',
   '/img/img-contact.svg',
-  '/css/styles.css',
-  '/manifest.json',
-  '/sw.js'
+  '/css/styles.css'
 ];
 
 //install the sw
