@@ -10,7 +10,7 @@ window.addEventListener('load', async () => {
             const title = 'Test Notification';
             const options = {
               body: 'Do you like this ?',
-              icon: 'icon.png',
+              icon: '/img/icon.png',
               vibrate: [200, 100, 200, 100, 200, 100, 400],
               tag: 'request',
               actions: [
