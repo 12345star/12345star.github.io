@@ -3,7 +3,7 @@
 Pagina personal
 ~~~
 
-## Estructura de carpetas.
+## Estructura de carpetas
 
 __El espacio de trabajo contiene los siguientes folderes, asociados:__ 
 

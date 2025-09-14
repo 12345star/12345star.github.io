@@ -13,7 +13,10 @@
     --main-color: #33f1ff;
     --other-color: #5d6c83;
 }
-
+p{
+    text-align: justify; 
+    text-justify: inter-word;
+}   
 html{
     font-size: 62.5%; /*1rem -> 10px*/
     overflow-x: hidden;
