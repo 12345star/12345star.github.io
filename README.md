@@ -1,13 +1,45 @@
-# Inicio del proyecto
-~~~
-Pagina personal
-~~~
+# 🌐 12345star.github.io
 
-## Estructura de carpetas
+Sitio web personal / portafolio desarrollado con **HTML**, **CSS** y/o **JavaScript** (ajusta según tu stack real).  
+Este repositorio contiene el código fuente y los recursos necesarios para desplegar el sitio en **GitHub Pages**.
 
-__El espacio de trabajo contiene los siguientes folderes, asociados:__ 
+---
 
-- `css`: Es donde esta el documentos de CSS
-- `images`: La carpeta que contiene las imagenes para el index.
+## 📋 Descripción
 
+Este proyecto tiene como objetivo mostrar mi portafolio de proyectos, compartir artículos y recursos.
 
+Incluye:
+- Diseño responsivo para dispositivos móviles y escritorio.
+- Navegación sencilla e intuitiva.
+- [Agrega aquí otras características clave].
+
+---
+
+## 🚀 Demo
+
+Puedes visitar el sitio en:  
+[https://12345star.github.io](https://12345star.github.io)
+
+---
+
+## 🛠️ Tecnologías utilizadas
+
+- **HTML5** – estructura del contenido.
+- **CSS3** – estilos y diseño responsivo.
+- **JavaScript** – interactividad y funcionalidades dinámicas.
+
+---
+
+## 📂 Estructura del proyecto
+
+```plaintext
+.
+├── index.html
+├── /css
+│   └── estilos.css
+├── /js
+│   └── script.js
+├── /img
+│   └── ...
+└── README.md
