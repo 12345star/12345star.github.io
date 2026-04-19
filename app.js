@@ -5,11 +5,12 @@ window.addEventListener('load', async () => {
           console.log('ServiceWorker registration successful with scope: ', registration.scope);
           const notificationPermission = await Notification.requestPermission();
           if (notificationPermission !== 'granted') {
-            console.log('Notification permission not granted');
+            console.log('Notificacion permisos no asignados');
+            new Notification("No hay notificaciones activas");
           } else {
-            const title = 'Test Notification';
+            const title = 'Page David Salas ';
             const options = {
-              body: 'Do you like this ?',
+              body: 'Te gusta la pagina?',
               icon: '/img/icon.png',
               vibrate: [200, 100, 200, 100, 200, 100, 400],
               tag: 'request',
