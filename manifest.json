@@ -1,6 +1,13 @@
 {
-  "short_name": "test",
+  "id": "/",
   "name": "pwa test",
+  "short_name": "test",
+  "start_url": "/",
+  "background_color": "#f1f1f1",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#33f1ff",
+
   "icons": [
     {
       "src": "img/icon.png",
@@ -12,10 +19,6 @@
       "type": "image/png",
       "sizes": "512x512"
     }
-  ],
-  "start_url": "/",
-  "background_color": "#f1f1f1",
-  "display": "standalone",
-  "scope": "/",
-  "theme_color": "#33f1ff"
+  ]
+
 }
