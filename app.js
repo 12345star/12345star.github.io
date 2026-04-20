@@ -32,3 +32,8 @@ window.addEventListener('load', async () => {
     }
   }
 });
+
+// Función que será llamada desde el enlace
+        function mostrarMensaje() {
+            alert("¡Hola! Has hecho clic en el enlace.");
+        }
