@@ -1,5 +1,5 @@
 const dataCacheName = 'KRIPTON-data';
-const cacheName = 'KRIPTON-v2'; // 👈 versión del caché, cámbiala cuando actualices archivos
+const cacheName = 'KRIPTON-v3'; // 👈 versión del caché, cámbiala cuando actualices archivos
 const filesToCache = [
   '/',                // página principal
   '/index.html',      // HTML base
