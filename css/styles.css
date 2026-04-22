@@ -6,22 +6,14 @@
     border: none;
 }
 
-:root{
-  /* Fondo principal: un gris muy claro, limpio */
-  --bg-color: #f9fafb;
-
-  /* Fondo secundario: un tono ligeramente más oscuro para secciones */
-  --second-bg-color: #e5e7eb;
-
-  /* Texto: gris oscuro para buena legibilidad */
-  --text-color: #374151;
-
-  /* Color principal: un azul verdoso elegante (teal) */
-  --main-color: #0d9488;
-
-  /* Color de acento: un coral suave para resaltar botones o enlaces */
-  --other-color: #f97316;
+:root {
+  --bg-color: #ffffff;        /* Fondo blanco puro */
+  --second-bg-color: #f3f4f6; /* Gris claro para secciones */
+  --text-color: #1f2937;      /* Gris muy oscuro (casi negro) */
+  --main-color: #0d9488;      /* Teal fresco y accesible */
+  --other-color: #dc2626;     /* Rojo accesible para acentos */
 }
+
 p{
     text-align: justify; 
     text-justify: inter-word;
