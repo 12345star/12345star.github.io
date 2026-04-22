@@ -45,20 +45,28 @@ self.addEventListener('activate', event => {
 // FETCH: intercepta todas las peticiones de la página
 self.addEventListener('fetch', event => {
   console.log('[Service Worker] Fetch', event.request.url);
+
   event.respondWith(
     caches.match(event.request).then(cachedResponse => {
-      // hace la petición a la red en segundo plano
+      // Hacemos la petición a la red en segundo plano
       const fetchPromise = fetch(event.request).then(networkResponse => {
-        // si la respuesta es válida, actualiza el caché
+        // Verificamos que la respuesta sea válida
         if (networkResponse && networkResponse.status === 200) {
+          // 👇 Clonamos la respuesta porque se va a usar en dos lugares:
+          // 1. Guardar en caché
+          // 2. Devolver al navegador
+          const responseToCache = networkResponse.clone();
+
           caches.open(cacheName).then(cache => {
-            cache.put(event.request, networkResponse.clone());
+            cache.put(event.request, responseToCache);
           });
         }
-        return networkResponse;
+        return networkResponse; // devolvemos la respuesta original al navegador
       });
-      // devuelve lo que haya en caché, pero actualiza en segundo plano
+
+      // Si hay algo en caché, lo devuelve rápido; si no, espera la red
       return cachedResponse || fetchPromise;
     })
   );
 });
+
