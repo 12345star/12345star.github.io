@@ -1,5 +1,5 @@
 const dataCacheName = 'KRIPTON-data';
-const cacheName = 'KRIPTON-v4'; // 👈 cambia la versión cuando actualices archivos
+const cacheName = 'KRIPTON-v5'; // 👈 cambia la versión cuando actualices archivos
 
 // Install: guarda los archivos iniciales
 self.addEventListener('install', event => {

@@ -230,7 +230,15 @@
                     
                 </p>
 
-                <img src="img/calculadora-golang.webp" alt="Portafolio de desarrollo en GOLANG">
+                <picture>
+                    <!-- Imagen para móviles -->
+                    <source media="(max-width: 600px)" srcset="./img/calculadora-golang-mobile.webp">
+                    <!-- Imagen para tablets -->
+                    <source media="(max-width: 1024px)" srcset="./img/calculadora-golang-tablet.webp">
+                    <!-- Imagen por defecto (escritorio o fallback) -->
+                    <img loading="lazy" src="./img/calculadora-golang.webp" alt="Portafolio de desarrollo en GOLANG">
+                </picture>
+
             </div>
 
             <div class="portfolio-item">
