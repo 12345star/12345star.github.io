@@ -1,50 +1,64 @@
 const dataCacheName = 'KRIPTON-data';
-const cacheName = 'KRIPTON';
+const cacheName = 'KRIPTON-v2'; // 👈 versión del caché, cámbiala cuando actualices archivos
 const filesToCache = [
-  '/',
-  '/index.html',
-  '/img/icon.png',
+  '/',                // página principal
+  '/index.html',      // HTML base
+  '/img/icon.png',    // ícono
   '/img/home-img.webp',
   '/img/portfolio2.webp',
   '/img/photo-profile.webp',
   '/img/icon.ico',
   '/img/img-contact.svg',
-  '/css/styles.css'
+  '/css/styles.css'   // estilos
 ];
 
-//install the sw
-self.addEventListener('install', function (e) {
+// INSTALL: se ejecuta la primera vez que se instala el SW
+self.addEventListener('install', event => {
   console.log('[ServiceWorker] Install');
-  e.waitUntil(
-    caches.open(cacheName).then(function (cache) {
+  event.waitUntil(
+    caches.open(cacheName).then(cache => {
       console.log('[ServiceWorker] Caching app shell');
-      return cache.addAll(filesToCache);
+      return cache.addAll(filesToCache); // guarda los archivos iniciales
     })
   );
 });
 
-
-self.addEventListener('activate', function (e) {
+// ACTIVATE: se ejecuta cuando el SW toma control
+self.addEventListener('activate', event => {
   console.log('[ServiceWorker] Activate');
-  e.waitUntil(
-    caches.keys().then(function (keyList) {
-      return Promise.all(keyList.map(function (key) {
-        if (key !== cacheName && key !== dataCacheName) {
-          console.log('[ServiceWorker] Removing old cache', key);
-          return caches.delete(key);
-        }
-      }));
+  event.waitUntil(
+    caches.keys().then(keyList => {
+      return Promise.all(
+        keyList.map(key => {
+          // elimina cachés viejos que no coincidan con la versión actual
+          if (key !== cacheName && key !== dataCacheName) {
+            console.log('[ServiceWorker] Removing old cache', key);
+            return caches.delete(key);
+          }
+        })
+      );
     })
   );
-  return self.clients.claim();
+  return self.clients.claim(); // fuerza al SW a controlar las páginas abiertas
 });
 
-
-self.addEventListener('fetch', function (e) {
-  console.log('[Service Worker] Fetch', e.request.url);
-  e.respondWith(
-    caches.match(e.request).then(function (response) {
-      return response || fetch(e.request);
+// FETCH: intercepta todas las peticiones de la página
+self.addEventListener('fetch', event => {
+  console.log('[Service Worker] Fetch', event.request.url);
+  event.respondWith(
+    caches.match(event.request).then(cachedResponse => {
+      // hace la petición a la red en segundo plano
+      const fetchPromise = fetch(event.request).then(networkResponse => {
+        // si la respuesta es válida, actualiza el caché
+        if (networkResponse && networkResponse.status === 200) {
+          caches.open(cacheName).then(cache => {
+            cache.put(event.request, networkResponse.clone());
+          });
+        }
+        return networkResponse;
+      });
+      // devuelve lo que haya en caché, pero actualiza en segundo plano
+      return cachedResponse || fetchPromise;
     })
   );
 });
