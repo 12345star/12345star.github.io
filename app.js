@@ -14,8 +14,6 @@
 
     // Función llamada desde el enlace
     async function mostrarMensaje() {
-      alert("¡Hola! Has hecho clic en el enlace.");
-
       try {
         const notificationPermission = await Notification.requestPermission();
 
