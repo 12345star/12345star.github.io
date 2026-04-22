@@ -1,37 +1,36 @@
 const dataCacheName = 'KRIPTON-data';
-const cacheName = 'KRIPTON-v3'; // 👈 versión del caché, cámbiala cuando actualices archivos
-const filesToCache = [
-  '/',                // página principal
-  '/index.html',      // HTML base
-  '/img/icon.png',    // ícono
-  '/img/home-img.webp',
-  '/img/portfolio2.webp',
-  '/img/photo-profile.webp',
-  '/img/icon.ico',
-  '/img/img-contact.svg',
-  '/css/styles.css'   // estilos
-];
+const cacheName = 'KRIPTON-v4'; // 👈 cambia la versión cuando actualices archivos
 
-// INSTALL: se ejecuta la primera vez que se instala el SW
+// Install: guarda los archivos iniciales
 self.addEventListener('install', event => {
   console.log('[ServiceWorker] Install');
   event.waitUntil(
     caches.open(cacheName).then(cache => {
       console.log('[ServiceWorker] Caching app shell');
-      return cache.addAll(filesToCache); // guarda los archivos iniciales
+      return cache.addAll([
+        '/',
+        '/index.html',
+        '/img/icon.png',
+        '/img/home-img.webp',
+        '/img/portfolio2.webp',
+        '/img/photo-profile.webp',
+        '/img/icon.ico',
+        '/img/img-contact.svg',
+        '/css/styles.css'
+      ]);
     })
   );
 });
 
-// ACTIVATE: se ejecuta cuando el SW toma control
+// Activate: elimina cualquier caché viejo que empiece con "KRIPTON"
 self.addEventListener('activate', event => {
   console.log('[ServiceWorker] Activate');
   event.waitUntil(
     caches.keys().then(keyList => {
       return Promise.all(
         keyList.map(key => {
-          // elimina cachés viejos que no coincidan con la versión actual
-          if (key !== cacheName && key !== dataCacheName) {
+          // 👇 Si el nombre empieza con "KRIPTON" pero no es el actual, se borra
+          if (key.startsWith('KRIPTON') && key !== cacheName && key !== dataCacheName) {
             console.log('[ServiceWorker] Removing old cache', key);
             return caches.delete(key);
           }
@@ -42,31 +41,24 @@ self.addEventListener('activate', event => {
   return self.clients.claim(); // fuerza al SW a controlar las páginas abiertas
 });
 
-// FETCH: intercepta todas las peticiones de la página
+// Fetch: estrategia Stale-While-Revalidate
 self.addEventListener('fetch', event => {
   console.log('[Service Worker] Fetch', event.request.url);
-
   event.respondWith(
     caches.match(event.request).then(cachedResponse => {
-      // Hacemos la petición a la red en segundo plano
       const fetchPromise = fetch(event.request).then(networkResponse => {
-        // Verificamos que la respuesta sea válida
         if (networkResponse && networkResponse.status === 200) {
-          // 👇 Clonamos la respuesta porque se va a usar en dos lugares:
-          // 1. Guardar en caché
-          // 2. Devolver al navegador
+          // 👇 Clonamos la respuesta para poder usarla en caché y devolverla
           const responseToCache = networkResponse.clone();
-
           caches.open(cacheName).then(cache => {
             cache.put(event.request, responseToCache);
           });
         }
-        return networkResponse; // devolvemos la respuesta original al navegador
+        return networkResponse;
       });
-
-      // Si hay algo en caché, lo devuelve rápido; si no, espera la red
       return cachedResponse || fetchPromise;
     })
   );
 });
+
 
