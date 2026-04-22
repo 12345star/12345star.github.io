@@ -1,23 +1,28 @@
 {
   "id": "/",
-  "name": "pwa test",
-  "short_name": "test",
-  "start_url": "/",
-  "background_color": "#f1f1f1",
-  "display": "standalone",
+  "name": "KRIPTON PWA",
+  "short_name": "KRIPTON",
+  "description": "Portafolio personal de David Salas que tiene como objetivo mostrar mis habilidades y proyectos realizados en el desarrollo web",
+  "start_url": "/index.html",
   "scope": "/",
+  "lang": "es-CR",
+  "dir": "ltr",
+  "display": "standalone",
+  "background_color": "#f1f1f1",
   "theme_color": "#33f1ff",
-
+  "categories": ["productivity", "utilities"],
   "icons": [
     {
       "src": "img/icon.png",
       "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "192x192",
+      "purpose": "any maskable"
     },
     {
       "src": "img/icon.png",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "512x512",
+      "purpose": "any maskable"
     }
   ]
 

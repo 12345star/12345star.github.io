@@ -18,7 +18,7 @@
         const notificationPermission = await Notification.requestPermission();
 
         if (notificationPermission === 'granted') {
-          const title = 'Page David Salas';
+          const title = 'David Salas Lorente';
           const options = {
             body: '¿Te gusta la página?',
             icon: '/img/icon.png',
@@ -39,7 +39,7 @@
           console.log('Permiso de notificaciones no concedido.');
           document.body.insertAdjacentHTML(
             'beforeend',
-            '<p>⚠️ Las notificaciones están bloqueadas. Actívalas en la configuración del navegador.</p>'
+            '<p>Las notificaciones están bloqueadas. Actívalas en la configuración del navegador.</p>'
           );
         }
       } catch (err) {
