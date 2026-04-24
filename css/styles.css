@@ -59,7 +59,9 @@ section{
 .heading-description{
     font-size: 1.8rem;
     margin-bottom: 3rem;
-    text-align: center;
+    text-align: justify;
+    margin: 0 auto; /* Centra el bloque horizontalmente */
+    text-align: center; /* Centra el texto dentro del bloque */
 }
 
 span{
