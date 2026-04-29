@@ -13,14 +13,14 @@
   "categories": ["productivity", "utilities"],
   "icons": [
     {
-      "src": "img/icon.png",
-      "type": "image/png",
+      "src": "img/icon.ico",
+      "type": "image/ico",
       "sizes": "192x192",
       "purpose": "any maskable"
     },
     {
-      "src": "img/icon.png",
-      "type": "image/png",
+      "src": "img/icon.ico",
+      "type": "image/ico",
       "sizes": "512x512",
       "purpose": "any maskable"
     }
