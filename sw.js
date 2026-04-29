@@ -1,5 +1,5 @@
 const dataCacheName = 'KRIPTON-data';
-const cacheName = 'KRIPTON-v7'; // 👈 cambia la versión cuando actualices archivos
+const cacheName = 'KRIPTON-v8'; // 👈 cambia la versión cuando actualices archivos
 
 // Install: guarda los archivos iniciales
 self.addEventListener('install', event => {
@@ -10,12 +10,11 @@ self.addEventListener('install', event => {
       return cache.addAll([
         '/',
         '/index.html',
-        '/img/icon.png',
         '/img/home-img.webp',
         '/img/portfolio2.webp',
         '/img/photo-profile.webp',
         '/img/icon.ico',
-        '/img/img-contact.svg',
+        '/img/contactame.webp',
         '/css/styles.css'
       ]);
     })
