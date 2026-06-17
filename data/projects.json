@@ -1,0 +1,12 @@
+{
+  "projects": [
+    { "name": "Golang + calculadora terminal", "url": "https://12345star.github.io/calculadora-golang/" },
+    { "name": "HTML,CSS + Template Portafolio", "url": "https://12345star.github.io/template_protafolio/" },
+    { "name": "Python + crear IMG para movil", "url": "https://12345star.github.io/convertidor-imagen-table-movil-python/" },
+    { "name": "Python + calculadora terminal", "url": "https://12345star.github.io/calculadora-terminal-python/" },
+    { "name": "Pyton + Calculadora Flet", "url": "https://12345star.github.io/flet-python-calculator" },
+    { "name": "Python + Creador de Curriculum", "url": "https://12345star.github.io/curriculum-python-flet/" },
+    { "name": "Python,docker,postgres,fastapi", "url": "https://12345star.github.io/docker-postgres-python-fastapi/" },
+    { "name": "Portafolio personal WEB", "url": "https://12345star.github.io" }
+  ]
+}

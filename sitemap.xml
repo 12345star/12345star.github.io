@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://12345star.github.io/index.html</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://12345star.github.io/template_protafolio/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://12345star.github.io/calculadora-golang/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://12345star.github.io/calculadora-terminal-python/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://12345star.github.io/flet-python-calculator/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://12345star.github.io/docker-postgres-python-fastapi/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://12345star.github.io/curriculum-python-flet/</loc>
+    <priority>0.8</priority>
+  </url>
+</urlset>

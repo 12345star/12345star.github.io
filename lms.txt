@@ -1,0 +1,4 @@
+# lms.txt
+tools: getServices, getProjects, getContactInfo
+description: Portafolio personal con integración WebMCP
+contact: tuemail@ejemplo.com

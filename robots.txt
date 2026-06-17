@@ -1,0 +1,6 @@
+# robots.txt para 12345star.github.io
+User-agent: *
+Allow: /
+
+# Indicar el sitemap para mejor SEO
+Sitemap: https://12345star.github.io/sitemap.xml
