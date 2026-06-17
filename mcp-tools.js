@@ -1,3 +1,14 @@
+// Inicializar modelContext si no existe
+if (!document.modelContext) {
+  document.modelContext = {
+    tools: [],
+    registerTool: function(tool) {
+      this.tools.push(tool);
+      console.log("Herramienta MCP registrada:", tool.name);
+    }
+  };
+}
+
 // Herramienta: Servicios MCP
 document.modelContext.registerTool({
   name: "getServices",
@@ -5,10 +16,14 @@ document.modelContext.registerTool({
   description: "Devuelve los servicios ofrecidos en la página Developer de Costa Rica",
   inputSchema: { type: "object", properties: {} },
   execute: async () => {
-    // Leer desde services.json
-    const response = await fetch("data/services.json");
-    const data = await response.json();
-    return data;
+    try {
+      const response = await fetch("data/services.json");
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error("Error cargando services.json:", error);
+      return { services: [] };
+    }
   }
 });
 
@@ -19,10 +34,14 @@ document.modelContext.registerTool({
   description: "Devuelve los proyectos personales del desarrollador",
   inputSchema: { type: "object", properties: {} },
   execute: async () => {
-    // Leer desde projects.json
-    const response = await fetch("data/projects.json");
-    const data = await response.json();
-    return data;
+    try {
+      const response = await fetch("data/projects.json");
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error("Error cargando projects.json:", error);
+      return { projects: [] };
+    }
   }
 });
 
